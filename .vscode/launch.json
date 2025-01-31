@@ -1,0 +1,70 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in library 'mini_ledger_grpc'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--lib",
+                    "--package=mini-ledger-grpc"
+                ],
+                "filter": {
+                    "name": "mini_ledger_grpc",
+                    "kind": "lib"
+                }
+            },
+            "args": [
+                "CASSANDRA_CONTACT_POINTS=0.0.0.0"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'mini-ledger-grpc'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=mini-ledger-grpc",
+                    "--package=mini-ledger-grpc"
+                ],
+                "filter": {
+                    "name": "mini-ledger-grpc",
+                    "kind": "bin"
+                }
+            },
+            "args": [
+                "CASSANDRA_CONTACT_POINTS=0.0.0.0"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'mini-ledger-grpc'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=mini-ledger-grpc",
+                    "--package=mini-ledger-grpc"
+                ],
+                "filter": {
+                    "name": "mini-ledger-grpc",
+                    "kind": "bin"
+                }
+            },
+            "args": [
+                "CASSANDRA_CONTACT_POINTS=0.0.0.0"
+            ],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
